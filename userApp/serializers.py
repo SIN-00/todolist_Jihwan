@@ -1,18 +1,8 @@
-from rest_framework import serializers
-from .models import Todo
+from rest_framework.serializers import ModelSerializer
+from .models import User
 
-class TodoSerializer(serializers.ModelSerializer):
-
-  user = serializers.StringRelatedField(read_only=True)  # 아래 부연 설명 참고
-  todo_id = serializers.IntegerField(source='id', read_only=True)  # 아래 부연 설명 참고
+class UserSerializer(ModelSerializer):
 
   class Meta:
-    model = Todo
-    fields = [
-      'todo_id',
-      'user',
-      'date',
-      'content',
-      'is_checked',
-      'emoji',
-    ]
+    model = User
+    fields = "__all__"

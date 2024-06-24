@@ -2,8 +2,6 @@ from django.db import models
 from userApp.models import User
 
 class Todo(models.Model):
-  """ Todo Model Definition """
-
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   date = models.DateTimeField()
   content = models.TextField()

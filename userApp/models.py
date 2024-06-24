@@ -2,7 +2,6 @@
 from django.db import models
 
 class User(models.Model):
-  """ User Model Definition """
   
   username = models.CharField(
     max_length=150,
