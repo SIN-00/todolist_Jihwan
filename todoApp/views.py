@@ -15,12 +15,10 @@ class Todos(APIView):
     return user
 
   def get(self, request, user_id):
-    # month와 day 쿼리 파라미터로 받아서 필터링
     now = timezone.localtime(timezone.now())
     current_month = now.month
     current_day = now.day
     
-		# 쿼리 파라미터에 "month"값이 없으면, 디폴트 값으로 current_month 가져옴
     month = request.query_params.get("month", current_month)
     month = int(month)
 
